@@ -9,7 +9,7 @@ __pycache__/
 # build
 /build/
 /dist/
-/cjkjust.egg-info/
+*.egg-info/
 
 # vim
 *.swp
