@@ -1,0 +1,15 @@
+# develop
+/rt/
+.idea/
+
+# pytest
+__pycache__/
+.pytest_cache/
+
+# build
+/build/
+/dist/
+/cjkjust.egg-info/
+
+# vim
+*.swp
