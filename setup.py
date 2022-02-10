@@ -1,11 +1,11 @@
-from setuptools import setup
+import setuptools
 
 
 with open('README.md') as infile:
     readme = infile.read()
 
 
-setup(
+setuptools.setup(
     name='cjkjust',
     description=('Having strings containing CJK characters left-, '
                  'right-justified or centered gracefully.'),
@@ -21,5 +21,6 @@ setup(
     python_requires='>=2.7',
     author='Kaiwen Wu',
     author_email='kps6326@hotmail.com',
-    packages=['cjkjust'],
+    package_dir={'': 'src'},
+    packages=setuptools.find_packages(where='src'),
 )
