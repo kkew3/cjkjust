@@ -2,6 +2,12 @@
 
 Having strings containing CJK characters left-, right-justified or centered gracefully.
 
+## Installation
+
+```
+pip install cjkjust
+```
+
 ## Functions
 
 - `is_wide(char) -> bool`: returns whether a character `char` is wide
