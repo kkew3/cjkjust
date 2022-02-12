@@ -13,6 +13,7 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     version='0.1.1',
     license='MIT',
+    url='https://github.com/kkew3/cjkjust.git',
     classifiers=[
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 2.7',
