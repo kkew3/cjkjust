@@ -28,3 +28,7 @@ print(cjkjust.cjkrjust('hello 世界', 20))
 print(cjkjust.cjkrjust('你好world', 20))
 print(cjkjust.cjkrjust('again and again', 20))
 ```
+
+## Optional dependency
+
+- `wcwidth`: if installed, 0-width characters will also be well handled in `cjkljust`, `cjkrjust`, and `cjkcenter`

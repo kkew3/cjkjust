@@ -11,7 +11,7 @@ setuptools.setup(
                  'right-justified or centered gracefully.'),
     long_description=readme,
     long_description_content_type='text/markdown',
-    version='0.1.0',
+    version='0.1.1',
     license='MIT',
     classifiers=[
         'License :: OSI Approved :: MIT License',
