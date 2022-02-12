@@ -11,7 +11,7 @@ setuptools.setup(
                  'right-justified or centered gracefully.'),
     long_description=readme,
     long_description_content_type='text/markdown',
-    version='0.1.1',
+    version='0.1.2',
     license='MIT',
     url='https://github.com/kkew3/cjkjust.git',
     classifiers=[
@@ -24,4 +24,5 @@ setuptools.setup(
     author_email='kps6326@hotmail.com',
     package_dir={'': 'src'},
     packages=setuptools.find_packages(where='src'),
+    extras_require={'allchars': ['wcwidth']},
 )
