@@ -31,4 +31,4 @@ print(cjkjust.cjkrjust('again and again', 20))
 
 ## Optional dependency
 
-- `wcwidth`: if installed, 0-width characters will also be well handled in `cjkljust`, `cjkrjust`, and `cjkcenter`
+- [`wcwidth`](https://pypi.org/project/wcwidth/): if installed, 0-width characters will also be well handled in `cjkljust`, `cjkrjust`, and `cjkcenter`
