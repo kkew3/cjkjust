@@ -1,5 +1,5 @@
 # develop
-/rt/
+/rt*/
 .idea/
 
 # pytest
