@@ -8,7 +8,7 @@ with open('README.md') as infile:
 setuptools.setup(
     name='cjkjust',
     description=('Having strings containing CJK characters left-, '
-                 'right-justified or centered gracefully.'),
+                 'right-justified or centered conveniently.'),
     long_description=readme,
     long_description_content_type='text/markdown',
     version='0.1.3',

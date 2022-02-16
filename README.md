@@ -1,6 +1,6 @@
 # cjkjust
 
-Having strings containing CJK characters left-, right-justified or centered gracefully.
+Having strings containing CJK characters left-, right-justified or centered conveniently.
 
 ## Installation
 
