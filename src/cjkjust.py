@@ -6,6 +6,8 @@ __all__ = [
     'cjkcenter',
 ]
 
+raises_on_indeterminate = False
+
 try:
     import wcwidth
 except ImportError:
@@ -33,13 +35,6 @@ except ImportError:
     def cjkljust(string, width, fillbyte=' '):
         """
         Same as ``str.ljust`` except for support of CJK characters.
-
-        >>> cjkljust('hello', 10, '*')
-        'hello*****'
-        >>> cjkljust('你好world', 10, '*')
-        '你好world*'
-        >>> cjkljust('你好world', 1, '*')
-        '你好world'
         """
         #return string.ljust(len(string) + width - cjklen(string), fillbyte)
         return string.ljust(width - count_cjk_chars(string), fillbyte)
@@ -64,21 +59,25 @@ else:
         """
         return wcwidth.wcwidth(char) == 2
 
-    cjklen = wcwidth.wcswidth
+    # reimplement `wcswidth` from
+    # https://github.com/jquast/wcwidth/blob/master/wcwidth/wcwidth.py
+    def cjklen(string):
+        if not raises_on_indeterminate:
+            width = 0
+            for char in string:
+                wcw = wcwidth.wcwidth(char)
+                if wcw < 0:
+                    wcw = 1
+                width += wcw
+            return width
+        return wcwidth.wcswidth(string)
 
     def cjkljust(string, width, fillbyte=' '):
         """
         Same as ``str.ljust`` except for support of CJK characters.
-
-        >>> cjkljust('hello', 10, '*')
-        'hello*****'
-        >>> cjkljust('你好world', 10, '*')
-        '你好world*'
-        >>> cjkljust('你好world', 1, '*')
-        '你好world'
         """
         display_width = cjklen(string)
-        if display_width == -1:
+        if display_width < 0:
             raise ValueError(
                 'string {!r} contains character(s) having indeterminate '
                 'effect on the terminal'.format(string))
@@ -89,7 +88,7 @@ else:
         Same as ``str.rjust`` except for support of CJK characters.
         """
         display_width = cjklen(string)
-        if display_width == -1:
+        if display_width < 0:
             raise ValueError(
                 'string {!r} contains character(s) having indeterminate '
                 'effect on the terminal'.format(string))
@@ -100,7 +99,7 @@ else:
         Same as ``str.center`` except for support of CJK characters.
         """
         display_width = cjklen(string)
-        if display_width == -1:
+        if display_width < 0:
             raise ValueError(
                 'string {!r} contains character(s) having indeterminate '
                 'effect on the terminal'.format(string))

@@ -31,7 +31,8 @@ print(cjkjust.cjkrjust('again and again', 20))
 
 ## Optional dependency
 
-- [`wcwidth`](https://pypi.org/project/wcwidth/): if installed, 0-width characters will also be well handled in `cjkljust`, `cjkrjust`, and `cjkcenter`. Caveat: installing `wcwidth` implies that `ValueError` will be raised if `<TAB>` is in `string`
+- [`wcwidth`](https://pypi.org/project/wcwidth/): if installed, 0-width characters will also be well handled in `cjkljust`, `cjkrjust`, and `cjkcenter`.
+  Caveat: installing `wcwidth` and explicitly set `cjkjust.raises_on_indeterminate` to `True` implies that `ValueError` will be raised if indeterminate-width-characters (e.g. `<TAB>`) is in `string`
 
 It can be installed along with `cjkjust` by:
 
