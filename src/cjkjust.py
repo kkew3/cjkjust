@@ -1,3 +1,11 @@
+"""
+When ``wcwidth`` is installed, if ``cjkjust.raises_on_indeterminate`` is set
+to ``False`` (default), the display width of all characters ``c`` such that
+``wcwidth.wcwidth(c) == -1`` will be treated as 1; otherwise, ``ValueError``
+will be raised. When ``wcwidth`` is not installed, the value of
+``cjkjust.raises_on_indeterminate`` has no effect.
+"""
+
 __all__ = [
     'is_wide',
     'cjklen',
